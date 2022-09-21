@@ -26,9 +26,14 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
 
-            AllInOnePrinter printer = new AllInOnePrinter();
-            printer.PrintRecipe(recipe, Destination.Console);
-            printer.PrintRecipe(recipe, Destination.File);
+            // Aplicando Polimorfismo, separamos las funciones que antes estaban en 
+            // la misma clase, en dos clases diferentes (dos tipos diferentes), que implementan
+            // al mismo tipo (IPrinter). 
+            IPrinter printer = new ConsolePrinter();
+            printer.PrintRecipe(recipe);
+            printer = new FilePrinter();
+            printer.PrintRecipe(recipe);
+            
         }
 
         private static void PopulateCatalogs()
