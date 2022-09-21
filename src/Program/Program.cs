@@ -27,7 +27,7 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
 
             // Aplicando Polimorfismo, separamos las funciones que antes estaban en 
-            // la misma clase, en dos clases diferentes (dos tipos diferentes), que implementan
+            // la misma clase, en dos clases diferentes (dos tipos diferentes ConsolePrinter y FilePrinter), que implementan
             // al mismo tipo (IPrinter). 
             IPrinter printer = new ConsolePrinter();
             printer.PrintRecipe(recipe);
